@@ -1,25 +1,25 @@
-/* Tajwid — palette contrastée : une couleur franche par famille de règles */
+/* Tajwid — code couleur des mushafs Dar Al-Maarifa (rouges = prolongations, vert = nasalisation, bleu = qalqala, gris = non prononcé) */
 :root{
-  --tj-m:#9A0010; --tj-o:#E3261F; --tj-p:#EF6C00; --tj-n:#B07F00;
-  --tj-g:#13913A; --tj-f:#008C9E; --tj-a:#7A3CC8; --tj-i:#D1127C; --tj-q:#1E56D6; --tj-x:#8B9490;
+  --tj-m:#8E1B1B; --tj-o:#E01E1E; --tj-p:#F07E1C; --tj-n:#C28A2E;
+  --tj-g:#16973C; --tj-q:#2B9BE0; --tj-x:#9A9A9A;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]):not([data-theme="sepia"]){
-    --tj-m:#FF4D6D; --tj-o:#FF7A59; --tj-p:#FFAA4D; --tj-n:#E9C64A;
-    --tj-g:#4FD67C; --tj-f:#33D1DB; --tj-a:#B892FF; --tj-i:#FF6FB8; --tj-q:#6FA8FF; --tj-x:#76827E;
+    --tj-m:#FF5A6E; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#E6BE6A;
+    --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#7E8A86;
   }
 }
 :root[data-theme="dark"]{
-  --tj-m:#FF4D6D; --tj-o:#FF7A59; --tj-p:#FFAA4D; --tj-n:#E9C64A;
-  --tj-g:#4FD67C; --tj-f:#33D1DB; --tj-a:#B892FF; --tj-i:#FF6FB8; --tj-q:#6FA8FF; --tj-x:#76827E;
+  --tj-m:#FF5A6E; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#E6BE6A;
+  --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#7E8A86;
 }
 :root[data-theme="sepia"]{
-  --tj-m:#8A000E; --tj-o:#D21F18; --tj-p:#D96200; --tj-n:#946A00;
-  --tj-g:#0F7F31; --tj-f:#007A8A; --tj-a:#6A2FB5; --tj-i:#B80F6C; --tj-q:#1A4BBE; --tj-x:#8C8072;
+  --tj-m:#7E1414; --tj-o:#CC1717; --tj-p:#DE6E10; --tj-n:#A87420;
+  --tj-g:#11843A; --tj-q:#1F86C8; --tj-x:#8C8072;
 }
 .tj-m{--c:var(--tj-m)} .tj-o{--c:var(--tj-o)} .tj-p{--c:var(--tj-p)} .tj-n{--c:var(--tj-n)}
-.tj-g{--c:var(--tj-g)} .tj-f,.tj-c{--c:var(--tj-f)} .tj-a,.tj-w{--c:var(--tj-a)}
-.tj-i{--c:var(--tj-i)} .tj-q{--c:var(--tj-q)}
+.tj-g,.tj-f,.tj-c,.tj-a,.tj-w,.tj-i{--c:var(--tj-g)}
+.tj-q{--c:var(--tj-q)}
 .tj-h,.tj-s,.tj-l,.tj-u,.tj-d,.tj-b{--c:var(--tj-x)}
 /* Couleur du texte : trait légèrement épaissi pour que les voyelles colorées ressortent */
 span.tj{color:var(--c);text-shadow:0 0 .7px var(--c)}
@@ -37,3 +37,18 @@ span.tj{color:var(--c);text-shadow:0 0 .7px var(--c)}
 .tjl .tx span{font-size:12.5px;color:var(--muted)}
 .tjl .arx{font-family:var(--font-ar);font-size:15px;color:var(--c);direction:rtl}
 .tj-sample{font-family:var(--font-quran);font-size:30px;line-height:2.2;direction:rtl;text-align:center;padding:10px 6px 14px;margin:12px 0 14px;border-bottom:1px solid var(--line)}
+
+/* Numéros d'aya : chiffre arabe + chiffre français */
+.med b{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.med b .ad{font-size:.92em}
+.med b .ld{font-family:var(--font-ui);font-size:.66em;font-weight:600;margin-top:.08em;letter-spacing:-.02em}
+/* Liste des sourates : nom arabe en premier */
+.srow-ar{grid-template-columns:auto 1fr auto}
+.srow-ar .sb{display:flex;flex-direction:column;min-width:0}
+.srow-ar .arn{font-family:var(--font-quran);font-size:25px;line-height:1.95;margin-bottom:8px;direction:rtl;text-align:left;color:var(--ink)}
+[dir="rtl"] .srow-ar .arn{text-align:right}
+.srow-ar .nm{font-size:14px;font-weight:600}
+.srow-ar .pc{align-self:center}
+/* Mode page : bandeau de sourate façon mushaf */
+.page-body .sh{background:var(--primary);color:var(--primary-ink);border:4px double var(--gold);border-radius:10px;padding:4px 10px;font-size:.9em}
+.page-body .bs{color:var(--ink)}
