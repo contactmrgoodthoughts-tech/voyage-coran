@@ -1,0 +1,39 @@
+/* Tajwid — palette contrastée : une couleur franche par famille de règles */
+:root{
+  --tj-m:#9A0010; --tj-o:#E3261F; --tj-p:#EF6C00; --tj-n:#B07F00;
+  --tj-g:#13913A; --tj-f:#008C9E; --tj-a:#7A3CC8; --tj-i:#D1127C; --tj-q:#1E56D6; --tj-x:#8B9490;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="sepia"]){
+    --tj-m:#FF4D6D; --tj-o:#FF7A59; --tj-p:#FFAA4D; --tj-n:#E9C64A;
+    --tj-g:#4FD67C; --tj-f:#33D1DB; --tj-a:#B892FF; --tj-i:#FF6FB8; --tj-q:#6FA8FF; --tj-x:#76827E;
+  }
+}
+:root[data-theme="dark"]{
+  --tj-m:#FF4D6D; --tj-o:#FF7A59; --tj-p:#FFAA4D; --tj-n:#E9C64A;
+  --tj-g:#4FD67C; --tj-f:#33D1DB; --tj-a:#B892FF; --tj-i:#FF6FB8; --tj-q:#6FA8FF; --tj-x:#76827E;
+}
+:root[data-theme="sepia"]{
+  --tj-m:#8A000E; --tj-o:#D21F18; --tj-p:#D96200; --tj-n:#946A00;
+  --tj-g:#0F7F31; --tj-f:#007A8A; --tj-a:#6A2FB5; --tj-i:#B80F6C; --tj-q:#1A4BBE; --tj-x:#8C8072;
+}
+.tj-m{--c:var(--tj-m)} .tj-o{--c:var(--tj-o)} .tj-p{--c:var(--tj-p)} .tj-n{--c:var(--tj-n)}
+.tj-g{--c:var(--tj-g)} .tj-f,.tj-c{--c:var(--tj-f)} .tj-a,.tj-w{--c:var(--tj-a)}
+.tj-i{--c:var(--tj-i)} .tj-q{--c:var(--tj-q)}
+.tj-h,.tj-s,.tj-l,.tj-u,.tj-d,.tj-b{--c:var(--tj-x)}
+/* Couleur du texte : trait légèrement épaissi pour que les voyelles colorées ressortent */
+span.tj{color:var(--c);text-shadow:0 0 .7px var(--c)}
+/* Couleur + soulignement : un trait de la même couleur sous chaque règle */
+.tjbg span.tj{text-decoration-line:underline;text-decoration-color:var(--c);text-decoration-thickness:.09em;text-underline-offset:.32em;text-decoration-skip-ink:none}
+.no-tj span.tj{color:inherit!important;text-decoration:none!important;text-shadow:none!important}
+/* Légende */
+.tjl{display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:560px){.tjl{grid-template-columns:1fr 1fr}}
+.tjl button{color:var(--ink);display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;text-align:start;background:var(--surface)}
+.tjl button[aria-pressed="false"]{opacity:.45}
+.tjl .sw{width:22px;height:22px;border-radius:6px;flex:none;background:var(--c)}
+.tjl .tx{flex:1;min-width:0;line-height:1.3}
+.tjl .tx b{display:block;font-size:14px;font-weight:600}
+.tjl .tx span{font-size:12.5px;color:var(--muted)}
+.tjl .arx{font-family:var(--font-ar);font-size:15px;color:var(--c);direction:rtl}
+.tj-sample{font-family:var(--font-quran);font-size:30px;line-height:2.2;direction:rtl;text-align:center;padding:10px 6px 14px;margin:12px 0 14px;border-bottom:1px solid var(--line)}

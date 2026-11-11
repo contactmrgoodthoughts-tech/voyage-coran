@@ -1,7 +1,7 @@
 /* Voyage avec le Coran — service worker (fonctionnement hors ligne) */
 const VERSION = 'vac-shell-__BUILD__';
 const SHELL = [
-  './', 'index.html', 'styles.css', 'app.js', 'fonts.css', 'manifest.webmanifest', 'data/quran.json',
+  './', 'index.html', 'styles.css', 'tajweed.css', 'app.js', 'tajweed.js', 'fonts.css', 'manifest.webmanifest', 'data/quran.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'icons/icon-maskable.png',
   __FONTS__
 ];
