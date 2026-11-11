@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voyage avec le Coran</title>
+<meta name="description" content="Mémoriser le Coran avec Saad Al-Ghamidi : répétition par aya et par série, tajwid, traduction, tafsir Ibn Kathir, suivi de progression.">
+<meta name="theme-color" content="#0F3D3A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Voyage Coran">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star" viewBox="0 0 40 40"><polygon points="20,1.5 25.3,7.2 33.1,6.9 32.8,14.7 38.5,20 32.8,25.3 33.1,33.1 25.3,32.8 20,38.5 14.7,32.8 6.9,33.1 7.2,25.3 1.5,20 7.2,14.7 6.9,6.9 14.7,7.2"/></symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <aside class="side" id="side">
+    <div class="side-head">
+      <div class="brand" style="display:flex">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><use href="#star" style="fill:var(--gold)"/></svg>
+        <div class="brand-txt"><b data-t="appName">Voyage avec le Coran</b><span>رحلة مع القرآن</span></div>
+      </div>
+      <nav id="sideNav"></nav>
+    </div>
+    <div class="side-list" id="sideList"></div>
+  </aside>
+
+  <div class="main" id="main">
+    <header class="topbar">
+      <div class="brand">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><use href="#star" style="fill:var(--gold)"/></svg>
+        <div class="brand-txt"><b data-t="appName">Voyage avec le Coran</b><span>رحلة مع القرآن</span></div>
+      </div>
+      <button class="chrono" id="chrono" aria-label="Chrono de session">
+        <svg class="ring" viewBox="0 0 30 30" aria-hidden="true"><circle class="bg" cx="15" cy="15" r="12"/><circle class="fg" cx="15" cy="15" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4" transform="rotate(-90 15 15)"/></svg>
+        <span class="t" id="chronoT">00:00</span>
+      </button>
+    </header>
+    <section id="view" class="view"></section>
+  </div>
+</div>
+
+<div class="dock" id="dock" hidden>
+  <div class="dock-in">
+    <div class="info">
+      <b id="dockTitle"></b>
+      <span id="dockSub"></span>
+      <div class="bar"><i id="dockBar"></i></div>
+    </div>
+    <button class="rep" id="dockRep" aria-label="Réglages de répétition"></button>
+    <button class="icon-btn" id="dockPrev" aria-label="Aya précédente"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9.5 12l8.5 6V6z"/></svg></button>
+    <button class="icon-btn play" id="dockPlay" aria-label="Lecture"><svg viewBox="0 0 24 24" fill="currentColor" id="dockPlayIco"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="icon-btn" id="dockNext" aria-label="Aya suivante"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+    <button class="icon-btn" id="dockStop" aria-label="Arrêter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h10v10H7z"/></svg></button>
+  </div>
+</div>
+
+<nav class="tabbar" id="tabbar"></nav>
+
+<dialog class="sheet" id="sheet">
+  <div class="sheet-h"><h2 id="sheetTitle"></h2><button class="icon-btn" id="sheetClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sheet-b" id="sheetBody"></div>
+  <div class="sheet-f" id="sheetFoot" hidden></div>
+</dialog>
+
+<audio id="audio" preload="auto" playsinline></audio>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

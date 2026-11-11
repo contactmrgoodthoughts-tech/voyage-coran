@@ -1,0 +1,16 @@
+{
+  "name": "Voyage avec le Coran",
+  "short_name": "Voyage Coran",
+  "description": "Mémoriser le Coran avec Saad Al-Ghamidi : répétition par aya, tajwid, traduction, tafsir Ibn Kathir.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F4F6F3",
+  "theme_color": "#0F3D3A",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
