@@ -1,0 +1,31 @@
+/* Mode Écoute */
+.tabbar{grid-template-columns:repeat(5,1fr)}
+.tabbar button{font-size:11.5px}
+.lsn{padding-top:6px}
+.lcard{background:var(--primary);color:var(--primary-ink);border-radius:24px;padding:20px 18px 22px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.14)}
+.lrec{font-size:13px;opacity:.85}
+.larbig{font-family:var(--font-quran);font-size:56px;line-height:1.7;margin-top:2px}
+.lsub{font-size:15px;opacity:.92}
+.lstate{min-height:20px;font-size:12.5px;opacity:.8;margin-top:4px}
+.lseek{width:100%;margin:12px 0 2px;accent-color:var(--gold);height:28px}
+.ltimes{display:flex;justify-content:space-between;font-size:13px;opacity:.85;font-variant-numeric:tabular-nums}
+.lctrl{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
+.lb{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:var(--primary-ink);background:rgba(255,255,255,.12)}
+.lb svg{width:30px;height:30px}
+.lplay{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:var(--primary-ink);color:var(--primary);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.lplay svg{width:48px;height:48px}
+@media (max-width:380px){.lb{width:52px;height:52px}.lplay{width:84px;height:84px}.larbig{font-size:46px}}
+.llist{list-style:none;margin:0;padding:0}
+.lrow{display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--line)}
+.lrow.on{background:var(--surface-2);border-radius:12px}
+.lmain{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:10px 8px;text-align:start}
+.ln{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--gold);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.lrow.on .ln{background:var(--gold);color:var(--surface)}
+.lnm{display:flex;flex-direction:column;min-width:0}
+.lar{font-family:var(--font-quran);font-size:22px;line-height:1.7}
+.lnm .small{color:var(--muted)}
+.lok{color:var(--primary)}
+.lpct{font-size:12px;color:var(--gold);font-weight:600;padding:0 10px;font-variant-numeric:tabular-nums}
+.lmini .info{display:block;color:inherit;min-width:0;flex:1}
+.lmini .info b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lmini .info span{font-size:12px;opacity:.8}
