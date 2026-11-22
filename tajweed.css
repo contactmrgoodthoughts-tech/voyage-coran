@@ -1,28 +1,29 @@
 /* Tajwid — code couleur des mushafs Dar Al-Maarifa (rouges = prolongations, vert = nasalisation, bleu = qalqala, gris = non prononcé) */
 :root{
-  --tj-m:#8E1B1B; --tj-o:#E01E1E; --tj-p:#F07E1C; --tj-n:#C28A2E;
-  --tj-g:#16973C; --tj-q:#2B9BE0; --tj-x:#9A9A9A;
+  --tj-m:#8B0A0A; --tj-o:#E00B0B; --tj-p:#FF7A00; --tj-n:#C08A00;
+  --tj-g:#0E9A3A; --tj-q:#1492E6; --tj-x:#A3A8A5;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]):not([data-theme="sepia"]){
-    --tj-m:#FF5A6E; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#E6BE6A;
-    --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#7E8A86;
+    --tj-m:#FF4D6D; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#EBCB6B;
+    --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#6F7B77;
   }
 }
 :root[data-theme="dark"]{
-  --tj-m:#FF5A6E; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#E6BE6A;
-  --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#7E8A86;
+  --tj-m:#FF4D6D; --tj-o:#FF6B5B; --tj-p:#FFA24A; --tj-n:#EBCB6B;
+  --tj-g:#4FD67C; --tj-q:#63BDFF; --tj-x:#6F7B77;
 }
 :root[data-theme="sepia"]{
-  --tj-m:#7E1414; --tj-o:#CC1717; --tj-p:#DE6E10; --tj-n:#A87420;
-  --tj-g:#11843A; --tj-q:#1F86C8; --tj-x:#8C8072;
+  --tj-m:#8B0000; --tj-o:#E00000; --tj-p:#FF6A00; --tj-n:#B8860B;
+  --tj-g:#078A36; --tj-q:#0A84D6; --tj-x:#B0A692;
 }
+:root[data-theme="sepia"] .aya .q,:root[data-theme="sepia"] .page-body,:root[data-theme="sepia"] .tf-aya,:root[data-theme="sepia"] .tj-sample,:root[data-theme="sepia"] .basmala{color:#17100A}
 .tj-m{--c:var(--tj-m)} .tj-o{--c:var(--tj-o)} .tj-p{--c:var(--tj-p)} .tj-n{--c:var(--tj-n)}
 .tj-g,.tj-f,.tj-c,.tj-a,.tj-w,.tj-i{--c:var(--tj-g)}
 .tj-q{--c:var(--tj-q)}
 .tj-h,.tj-s,.tj-l,.tj-u,.tj-d,.tj-b{--c:var(--tj-x)}
 /* Couleur du texte : trait légèrement épaissi pour que les voyelles colorées ressortent */
-span.tj{color:var(--c);text-shadow:0 0 .7px var(--c)}
+span.tj{color:var(--c);text-shadow:0 0 1px var(--c)}
 /* Couleur + soulignement : un trait de la même couleur sous chaque règle */
 .tjbg span.tj{text-decoration-line:underline;text-decoration-color:var(--c);text-decoration-thickness:.09em;text-underline-offset:.32em;text-decoration-skip-ink:none}
 .no-tj span.tj{color:inherit!important;text-decoration:none!important;text-shadow:none!important}
@@ -52,3 +53,35 @@ span.tj{color:var(--c);text-shadow:0 0 .7px var(--c)}
 /* Mode page : bandeau de sourate façon mushaf */
 .page-body .sh{background:var(--primary);color:var(--primary-ink);border:4px double var(--gold);border-radius:10px;padding:4px 10px;font-size:.9em}
 .page-body .bs{color:var(--ink)}
+
+/* Bouton « Valider » bien visible sous chaque aya */
+.aya .acts [data-act="quick"]{width:auto;height:34px;padding:0 12px 0 8px;margin:0 4px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:13px;font-weight:600}
+.aya .acts [data-act="quick"]::after{content:"Valider"}
+.aya .acts [data-act="quick"][aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--primary-ink)}
+.aya .acts [data-act="quick"][aria-pressed="true"]::after{content:"Appris"}
+[dir="rtl"] .aya .acts [data-act="quick"]::after{content:"تأكيد"}
+[dir="rtl"] .aya .acts [data-act="quick"][aria-pressed="true"]::after{content:"محفوظة"}
+/* Sélection d'ayas */
+.selbtn .ck{opacity:0}
+.selbtn[aria-pressed="true"]{color:var(--gold)!important}
+.selbtn[aria-pressed="true"] rect{fill:var(--gold-soft)}
+.selbtn[aria-pressed="true"] .ck{opacity:1}
+.aya.sel{background:var(--gold-soft);background:color-mix(in srgb,var(--gold-soft) 60%,transparent)}
+.selbar{position:fixed;left:0;right:0;bottom:calc(68px + var(--dock-h) + env(safe-area-inset-bottom,0px));z-index:43;padding:0 10px;pointer-events:none}
+@media (min-width:1000px){.selbar{left:340px;bottom:calc(var(--dock-h) + 16px)}}
+.selbar-in{pointer-events:auto;max-width:760px;margin:0 auto;display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--gold);border-radius:16px;padding:8px 6px 8px 14px;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.selbar-in b{font-size:16px}
+.selbar .lbl{font-size:13px;color:var(--muted)}
+.selbar .btn.sm{padding:0 10px;font-size:13px}
+@media (max-width:520px){.selbar .lbl{display:none}.selbar .btn.sm svg{display:none}}
+/* Pourcentage d'avancement par sourate */
+.spct{max-width:360px;margin:14px auto 0}
+.spct .progress{height:8px;margin-bottom:6px}
+.srow-ar .progress{margin-top:6px;height:4px}
+.spr{cursor:pointer}
+.spr .med{font-size:32px}
+.spr .spn{flex:1;min-width:0}
+.spr .spn b{font-family:var(--font-quran);font-size:20px;font-weight:400}
+.spr .progress{margin-top:6px}
+.spr .spv{text-align:end;font-variant-numeric:tabular-nums}
+.seg4 button{font-size:13px}
